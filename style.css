@@ -134,9 +134,9 @@ body {
 }
 
 .header-inner {
-  max-width: 1280px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 14px 24px;
+  padding: 12px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -205,14 +205,13 @@ body {
 }
 .btn-primary:active { transform: translateY(0); }
 
-/* ---------- MAIN ---------- */
 .main-content {
-  max-width: 1280px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 28px 24px 48px;
+  padding: 20px 16px 36px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 32px;
 }
 
 /* ---------- KPI CARDS ---------- */
@@ -299,12 +298,11 @@ body {
   margin-top: 3px;
 }
 
-/* ---------- CARDS ---------- */
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 24px;
+  border-radius: 12px;
+  padding: 16px;
   box-shadow: var(--shadow);
 }
 
@@ -322,7 +320,7 @@ body {
 
 /* Compact table variant for partidas breakdown */
 .small-table th,
-.small-table td { font-size: 13px; padding: 9px 12px; }
+.small-table td { font-size: 11px; padding: 5px 6px; }
 
 /* Side-by-side charts at equal height */
 .charts-pair {
@@ -351,9 +349,9 @@ body {
 }
 
 .data-table th {
-  padding: 10px 14px;
+  padding: 6px 8px;
   font-size: 10px; font-weight: 800;
-  text-transform: uppercase; letter-spacing: 0.1em;
+  text-transform: uppercase; letter-spacing: 0.08em;
   color: var(--text-secondary);
   border-bottom: 1px solid var(--border);
   white-space: nowrap;
@@ -364,7 +362,7 @@ body {
 .data-table td.num { text-align: right; }
 
 .data-table td {
-  padding: 10px 14px;
+  padding: 6px 8px;
   border-bottom: 1px solid var(--border);
   color: var(--text-primary);
   font-weight: 500;
@@ -376,10 +374,10 @@ body {
 .data-table tbody tr:last-child td { border-bottom: none; }
 
 .data-table tfoot td {
-  padding: 11px 14px;
+  padding: 7px 8px;
   border-top: 2px solid var(--border-light);
   font-weight: 800;
-  font-size: 13px;
+  font-size: 11px;
   background: var(--bg-table-head);
 }
 
@@ -468,12 +466,160 @@ body {
 }
 
 /* ---------- RESPONSIVE ---------- */
-@media (max-width: 900px) {
-  .kpi-row { grid-template-columns: repeat(2, 1fr); }
-  .header-inner { padding: 12px 16px; }
-  .main-content { padding: 20px 16px 40px; }
+/* ================================================================
+   RESPONSIVE — mobile-first breakpoints
+   768px  → Tablet landscape / small tablet
+   560px  → Mobile (phone)
+   420px  → Small phone
+   ================================================================ */
+
+/* --- 768px: Tablet ------------------------------------------- */
+@media (max-width: 768px) {
+
+  /* Header */
+  .header-inner {
+    padding: 12px 16px;
+    gap: 10px;
+  }
+  .brand-text h1 { font-size: 14px; }
+  .brand-text p  { font-size: 11px; }
+  .brand-icon    { width: 34px; height: 34px; font-size: 13px; }
+  .btn-primary   { padding: 8px 14px; font-size: 12px; }
+
+  /* Main */
+  .main-content  { padding: 20px 16px 40px; gap: 32px; }
+
+  /* Sections */
+  .section-number { font-size: 26px; }
+  .section-title  { font-size: 16px; }
+
+  /* KPI: 2 columns */
+  .kpi-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .kpi-card   { padding: 16px 18px; }
+  .kpi-value  { font-size: 19px; }
+
+  /* Charts pair: stack vertically */
+  .charts-pair { grid-template-columns: 1fr; gap: 12px; }
+  .charts-pair .chart-container { height: 260px; }
+
+  /* Charts */
+  .chart-container { height: 280px; }
+  .chart-tall      { height: 360px; }
+
+  /* Cards */
+  .card { padding: 18px; }
+
+  /* Tables: touch-friendly horizontal scroll */
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    border-radius: 10px;
+  }
+  .data-table          { font-size: 11.5px; min-width: 400px; }
+  .data-table th       { padding: 7px 8px;  font-size: 9px; letter-spacing: 0.05em; }
+  .data-table td       { padding: 7px 8px; }
+  .data-table tfoot td { padding: 7px 8px; font-size: 11px; }
 }
+
+/* --- 560px: Phone -------------------------------------------- */
 @media (max-width: 560px) {
-  .kpi-row { grid-template-columns: 1fr; }
-  .brand-text h1 { font-size: 13px; }
+
+  /* Header */
+  .header-inner { flex-wrap: wrap; gap: 8px; }
+  .header-actions { gap: 8px; }
+  .btn-primary { padding: 7px 12px; font-size: 11px; }
+  /* Keep print button visible but compact */
+  .btn-primary::before { content: '\1F5A8\FE0F '; }
+
+  /* Section header stacks */
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding-bottom: 12px;
+  }
+  .section-number { font-size: 22px; }
+  .section-title  { font-size: 15px; }
+  .section-desc   { font-size: 11px; }
+
+  /* KPI: still 2 columns at 560 */
+  .kpi-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .kpi-card   { padding: 14px 14px; border-radius: 10px; }
+  .kpi-label  { font-size: 9px; margin-bottom: 6px; }
+  .kpi-value  { font-size: 17px; }
+  .kpi-sub    { font-size: 10px; }
+
+  /* Charts */
+  .chart-container { height: 240px; }
+  .chart-tall      { height: 300px; }
+  .charts-pair .chart-container { height: 230px; }
+
+  /* Cards */
+  .card  { padding: 14px 14px; border-radius: 10px; }
+  .chart-card { padding: 14px 12px 10px; }
+
+  /* Tables */
+  .data-table          { font-size: 11px; min-width: 360px; }
+  .data-table th       { padding: 6px 7px; }
+  .data-table td       { padding: 6px 7px; }
+  .data-table tfoot td { padding: 6px 7px; font-size: 10.5px; }
+
+  /* Main */
+  .main-content { padding: 16px 12px 32px; gap: 24px; }
 }
+
+/* --- 420px: Small phone -------------------------------------- */
+@media (max-width: 420px) {
+
+  /* KPI: 1 column on very small screens */
+  .kpi-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .kpi-value { font-size: 15px; }
+
+  /* Tighten chart height */
+  .chart-container { height: 210px; }
+  .chart-tall      { height: 270px; }
+
+  /* Brand: hide subtitle on tiny screens */
+  .brand-text p { display: none; }
+  .brand-text h1 { font-size: 13px; }
+
+  /* Tables */
+  .data-table { font-size: 11px; }
+
+  .main-content { padding: 12px 10px 28px; }
+}
+
+/* ---------- BADGES ---------- */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.6;
+}
+.badge-green  { background: rgba(16,185,129,.15); color: #10b981; }
+.badge-red    { background: rgba(239,68, 68, .15); color: #ef4444; }
+.badge-yellow { background: rgba(250,204,21, .15); color: #ca8a04; }
+[data-theme="light"] .badge-yellow { color: #92400e; }
+
+/* ---------- ROW-GROUP (Conserjería + Jardinería) ---------- */
+/* Línea vertical tenue en el margen izquierdo — sin bordes por celda */
+tr.row-group-top,
+tr.row-group-bottom {
+  border-left: 3px solid rgba(59,130,246,.22);
+}
+tr.row-group-top    { border-top:    1px solid transparent; }
+tr.row-group-bottom { border-bottom: 1px solid transparent; }

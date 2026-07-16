@@ -62,13 +62,18 @@ const DATA_CAJA = [
   },
 ];
 
-/** Section 2 — Presupuestado vs Ejecutado */
+/** Section 2 — Presupuestado vs Ejecutado
+ *  subida_cuota: % de variación de la cuota respecto al ejercicio anterior
+ */
 const DATA_PPTO = [
-  { ejercicio: '2021/22', presupuestado: 104500.00, ejecutado:  79604.38 },
-  { ejercicio: '2022/23', presupuestado: 104500.00, ejecutado:  87539.06 },
-  { ejercicio: '2023/24', presupuestado: 104500.00, ejecutado:  92295.61 },
-  { ejercicio: '2024/25', presupuestado: 104500.00, ejecutado: 176405.71 },
-  { ejercicio: '2025/26', presupuestado: 104500.00, ejecutado: 179066.31 },
+  { ejercicio: '2021/22', presupuestado: 104500.00, ejecutado:  79604.38, subida_cuota:  0 },
+  { ejercicio: '2022/23', presupuestado: 104500.00, ejecutado:  87539.06, subida_cuota:  0 },
+  { ejercicio: '2023/24', presupuestado: 104500.00, ejecutado:  92295.61, subida_cuota:  0 },
+  { ejercicio: '2024/25', presupuestado: 104500.00, ejecutado: 176405.71, subida_cuota:  0 },
+  { ejercicio: '2025/26', presupuestado: 104500.00, ejecutado: 179066.31, subida_cuota:  0 },
+  // 2026/27: presupuesto aprobado en Convocatoria 2025/26 (pág. 1)
+  // Subida: (145.000 - 104.500) / 104.500 × 100 = +38,76 %
+  { ejercicio: '2026/27', presupuestado: 145000.00, ejecutado:       null, subida_cuota: 38.76 },
 ];
 
 /** Section 3 — Saldo ajustado con morosidad y proveedores */
@@ -94,25 +99,25 @@ const DATA_SALDO_HISTORICO = [
 
 /** Section 1B — Desglose de Gastos por Partida (datos verificados) */
 const DATA_PARTIDAS = [
-  { cat: '1. Obras e Inversiones Extraordinarias', vals: [7469.00,    0.00,   4858.00, 65339.32, 52059.99] },
-  { cat: '2. Conserjería y Mantenimiento',          vals: [25950.77, 27205.95, 28731.46, 38886.39, 40013.52] },
-  { cat: '3. Mantenimiento Ascensores',             vals: [5760.51,  7034.93,  6928.42, 12833.34, 16276.09] },
-  { cat: '4. Suministro de Agua',                   vals: [10995.34, 12241.35, 12198.35, 11658.91, 13261.48] },
-  { cat: '5. Jardinería y Piscina',                 vals: [3609.06,  4939.73,  5676.09,  7021.95, 17917.54] },
-  { cat: '6. Electricidad',                         vals: [4120.50,  4350.00,  4410.20,  5620.40,  5980.50] },
-  { cat: '7. Reparaciones Ordinarias',              vals: [6840.20,  7150.60,  8969.12, 11230.50, 12450.19] },
-  { cat: '8. Honorarios Administración',            vals: [5400.00,  5400.00,  5510.00,  5510.00,  5620.00] },
-  { cat: '9. Seguro Multirriesgo',                  vals: [3150.00,  3280.00,  3390.00,  3510.00,  3650.00] },
-  { cat: '10. Tasa de Vado Municipal',              vals: [1150.00,  1150.00,  1190.00,  1190.00,  1210.00] },
-  { cat: '11. Comisiones Bancarias',                vals: [350.00,    410.00,   430.00,   490.00,   510.00] },
+  { cat: '1. Obras e Inversiones Extraordinarias',      vals: [7469.00,    0.00,   4858.00, 65339.32, 52059.99] },
+  { cat: '2. Conserjería y Mantenimiento',              vals: [25950.77, 27205.95, 28731.46, 38886.39, 40013.52] },
+  { cat: '3. Jardinería y Piscina',                     vals: [3609.06,  4939.73,  5676.09,  7021.95, 17917.54] },
+  { cat: '4. Mantenimiento Ascensores',                 vals: [5760.51,  7034.93,  6928.42, 12833.34, 16276.09] },
+  { cat: '5. Suministro de Agua',                       vals: [10995.34, 12241.35, 12198.35, 11658.91, 13261.48] },
+  { cat: '6. Electricidad',                             vals: [4120.50,  4350.00,  4410.20,  5620.40,  5980.50] },
+  { cat: '7. Reparaciones Ordinarias',                  vals: [6840.20,  7150.60,  8969.12, 11230.50, 12450.19] },
+  { cat: '8. Honorarios Administración',                vals: [5400.00,  5400.00,  5510.00,  5510.00,  5620.00] },
+  { cat: '9. Seguro Multirriesgo',                      vals: [3150.00,  3280.00,  3390.00,  3510.00,  3650.00] },
+  { cat: '10. Tasa de Vado Municipal',                  vals: [1150.00,  1150.00,  1190.00,  1190.00,  1210.00] },
+  { cat: '11. Comisiones Bancarias',                    vals: [350.00,    410.00,   430.00,   490.00,   510.00] },
   // --- Desglose estimado partida 12 (suman exactamente los totales originales) ---
   { cat: '12a. Honorarios Legales (Abogados/Procurador)', vals: [2100.00,  8700.00,  5700.00,  4700.00,  4200.00] },
-  { cat: '12c. Peritos y Técnicos (ITE/Informes)',  vals: [   0.00,  1800.00,   800.00,  2500.00,  1200.00] },
-  { cat: '12d. Costas y Tasas Judiciales',          vals: [   0.00,   800.00,   500.00,   400.00,   300.00] },
-  { cat: '12e. Notaría y Registro',                 vals: [ 350.00,   350.00,   250.00,   350.00,   350.00] },
-  { cat: '12f. Comunicaciones y Burofax',           vals: [ 450.00,   650.00,   453.97,   550.00,   500.00] },
-  { cat: '12g. Limpieza Extraordinaria',            vals: [ 500.00,   800.00,   700.00,  1500.00,   800.00] },
-  { cat: '12h. Imprevistos y Gastos Menores',       vals: [1409.00,  1276.50,  1600.00,  3114.90,  2767.00] },
+  { cat: '12c. Peritos y Técnicos (ITE/Informes)',        vals: [   0.00,  1800.00,   800.00,  2500.00,  1200.00] },
+  { cat: '12d. Costas y Tasas Judiciales',               vals: [   0.00,   800.00,   500.00,   400.00,   300.00] },
+  { cat: '12e. Notaría y Registro',                      vals: [ 350.00,   350.00,   250.00,   350.00,   350.00] },
+  { cat: '12f. Comunicaciones y Burofax',                vals: [ 450.00,   650.00,   453.97,   550.00,   500.00] },
+  { cat: '12g. Limpieza Extraordinaria',                 vals: [ 500.00,   800.00,   700.00,  1500.00,   800.00] },
+  { cat: '12h. Imprevistos y Gastos Menores',            vals: [1409.00,  1276.50,  1600.00,  3114.90,  2767.00] },
 ];
 
 // ---------------------------------------------------------------
@@ -131,9 +136,9 @@ const C_SLATE  = '#94a3b8';
 const PALETTE_19 = [
   '#ef4444', // 1. Obras
   '#3b82f6', // 2. Conserjería
-  '#8b5cf6', // 3. Ascensores
-  '#06b6d4', // 4. Agua
-  '#10b981', // 5. Jardinería
+  '#10b981', // 3. Jardinería  ← movida al lado de Conserjería
+  '#8b5cf6', // 4. Ascensores
+  '#06b6d4', // 5. Agua
   '#facc15', // 6. Electricidad
   '#f97316', // 7. Reparaciones
   '#64748b', // 8. Honorarios Adm.
@@ -166,6 +171,10 @@ const colorOf = (n, positiveIsGood = true) => {
   if (n === 0) return '';
   return (n > 0) === positiveIsGood ? 'green' : 'red';
 };
+
+/** '2021/22' → '21/22'  (formato corto para tablas en móvil) */
+const shortEj = (ej) => ej.replace(/20(\d\d)\/(\d\d)/, '$1/$2');
+
 
 // ---------------------------------------------------------------
 // THEME MANAGEMENT
@@ -378,8 +387,8 @@ function buildChartPartidas() {
   const instance = echarts.init(dom, null, { renderer: 'canvas' });
 
   const shortLabels = [
-    '1. Obras', '2. Conserjería', '3. Ascensores', '4. Agua',
-    '5. Jardín/Piscina', '6. Electricidad', '7. Reparaciones',
+    '1. Obras', '2. Conserjería', '3. Jardín/Piscina', '4. Ascensores', '5. Agua',
+    '6. Electricidad', '7. Reparaciones',
     '8. Administración', '9. Seguro', '10. Vado', '11. Bancarios',
     '12a. Legales', '12c. Peritos',
     '12d. Costas/Tasas', '12e. Notaría', '12f. Burofax',
@@ -451,6 +460,9 @@ function buildChartPpto() {
   const dom = document.getElementById('chart-ppto');
   const instance = echarts.init(dom, null, { renderer: 'canvas' });
 
+  // Solo ejercicios con datos ejecutados (excluye el futuro 2026/27)
+  const pptoHist = DATA_PPTO.filter(d => d.ejecutado !== null);
+
   const optFn = () => ({
     backgroundColor: chartBgColor(),
     legend: baseLegend(['Presupuestado', 'Ejecutado']),
@@ -465,14 +477,14 @@ function buildChartPpto() {
       return html;
     }),
     grid: baseGrid(),
-    xAxis: baseXAxis(EJERCICIOS),
+    xAxis: baseXAxis(pptoHist.map(d => d.ejercicio)),
     yAxis: baseYAxis(),
     series: [
-      barSeries('Presupuestado', DATA_PPTO.map(d => d.presupuestado), C_BLUE),
-      barSeries('Ejecutado', DATA_PPTO.map(d => d.ejecutado), null, {
+      barSeries('Presupuestado', pptoHist.map(d => d.presupuestado), C_BLUE),
+      barSeries('Ejecutado', pptoHist.map(d => d.ejecutado), null, {
         itemStyle: {
           borderRadius: [4, 4, 0, 0],
-          color: (params) => DATA_PPTO[params.dataIndex].ejecutado > DATA_PPTO[params.dataIndex].presupuestado ? C_RED : C_GREEN,
+          color: (params) => pptoHist[params.dataIndex].ejecutado > pptoHist[params.dataIndex].presupuestado ? C_RED : C_GREEN,
         }
       }),
     ],
@@ -552,7 +564,7 @@ function buildTableCaja() {
     const rClass = colorOf(d.resultado);
     tbody.insertAdjacentHTML('beforeend', `
       <tr>
-        <td><strong>${d.ejercicio}</strong></td>
+        <td><strong>${shortEj(d.ejercicio)}</strong></td>
         <td class="num">${fmt(d.saldo_ini)}</td>
         <td class="num blue">${fmt(d.ingresos)}</td>
         <td class="num red">${fmt(d.gastos)}</td>
@@ -573,8 +585,13 @@ function buildTablePartidas() {
       const isHigh = rowIdx === 0 && v > 10000;
       return `<td class="num${isHigh ? ' red' : ''}">${v > 0 ? fmt(v) : '<span class="muted">—</span>'}</td>`;
     }).join('');
+
+    // Rows 1 y 2 (Conserjería + Jardinería) comparten borde lateral tenue
+    const groupClass = (rowIdx === 1 || rowIdx === 2) ? ' row-group' : '';
+    const groupPos   = rowIdx === 1 ? ' row-group-top' : rowIdx === 2 ? ' row-group-bottom' : '';
+
     tbody.insertAdjacentHTML('beforeend', `
-      <tr>
+      <tr class="${groupClass}${groupPos}">
         <td style="display:flex;align-items:center;gap:8px">
           <span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:${PALETTE_12[rowIdx]};flex-shrink:0"></span>
           ${p.cat}
@@ -600,22 +617,34 @@ function buildTablePartidas() {
 function buildTablePpto() {
   const tbody = document.getElementById('tbody-ppto');
   DATA_PPTO.forEach(d => {
-    const dev = d.ejecutado - d.presupuestado;
-    const pct = (dev / d.presupuestado) * 100;
-    const cls = colorOf(dev, false);
-    const badge = Math.abs(pct) < 5
-      ? '<span class="badge badge-green">EN CONTROL</span>'
-      : dev > 0
-        ? '<span class="badge badge-red">DESVÍO +</span>'
-        : '<span class="badge badge-green">AHORRO</span>';
+    const isFuture = d.ejecutado === null;
+
+    // Desviación solo para ejercicios con datos ejecutados
+    const dev = isFuture ? null : d.ejecutado - d.presupuestado;
+    const pct = isFuture ? null : (dev / d.presupuestado) * 100;
+    const cls = isFuture ? '' : colorOf(dev, false);
+
+    const badge = isFuture
+      ? '<span class="badge badge-yellow">PREVISTO</span>'
+      : Math.abs(pct) < 5
+        ? '<span class="badge badge-green">EN CONTROL</span>'
+        : dev > 0
+          ? '<span class="badge badge-red">DESVÍO +</span>'
+          : '<span class="badge badge-green">AHORRO</span>';
+
+    // % subida cuota
+    const subidaCell = d.subida_cuota === 0
+      ? '<td class="num muted">—</td>'
+      : `<td class="num red"><strong>+${d.subida_cuota.toLocaleString('es-ES', {minimumFractionDigits:2,maximumFractionDigits:2})} %</strong></td>`;
 
     tbody.insertAdjacentHTML('beforeend', `
-      <tr>
-        <td><strong>${d.ejercicio}</strong></td>
+      <tr${isFuture ? ' style="opacity:0.85;font-style:italic"' : ''}>
+        <td><strong>${shortEj(d.ejercicio)}</strong>${isFuture ? ' <span class="badge badge-yellow" style="font-size:10px">Aprobado</span>' : ''}</td>
         <td class="num">${fmt(d.presupuestado)}</td>
-        <td class="num">${fmt(d.ejecutado)}</td>
-        <td class="num ${cls}"><strong>${fmtSign(dev)}</strong></td>
-        <td class="num ${cls}"><strong>${fmtPct(pct)}</strong></td>
+        <td class="num">${isFuture ? '<span class="muted">— pendiente</span>' : fmt(d.ejecutado)}</td>
+        <td class="num ${cls}">${isFuture ? '<span class="muted">—</span>' : `<strong>${fmtSign(dev)}</strong>`}</td>
+        <td class="num ${cls}">${isFuture ? '<span class="muted">—</span>' : `<strong>${fmtPct(pct)}</strong>`}</td>
+        ${subidaCell}
         <td class="num">${badge}</td>
       </tr>
     `);
@@ -627,7 +656,7 @@ function buildTableAjuste() {
   DATA_AJUSTE.forEach(d => {
     tbody.insertAdjacentHTML('beforeend', `
       <tr>
-        <td><strong>${d.ejercicio}</strong></td>
+        <td><strong>${shortEj(d.ejercicio)}</strong></td>
         <td class="num">${fmt(d.saldo_banco)}</td>
         <td class="num green">${d.morosidad > 0 ? '+ ' + fmt(d.morosidad) : '<span class="muted">—</span>'}</td>
         <td class="num red">${d.deuda_prov > 0 ? '− ' + fmt(d.deuda_prov) : '<span class="muted">—</span>'}</td>

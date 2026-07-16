@@ -2,7 +2,10 @@
 <html lang="es" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#020617" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <title>C.P. Residencial La Cala · Informe Económico 2021–2026</title>
   <meta name="description" content="Cuadro de mando financiero de la Comunidad de Propietarios Residencial La Cala (Miami Platja). Evolución de saldos, ingresos, gastos y presupuestos de los últimos 5 ejercicios." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -62,12 +65,12 @@
           <table class="data-table" id="table-caja">
             <thead>
               <tr>
-                <th>Ejercicio</th>
-                <th class="num">Saldo Inicial</th>
-                <th class="num">Ingresos</th>
-                <th class="num">Gastos</th>
-                <th class="num">Saldo Final</th>
-                <th class="num">Resultado</th>
+                <th>Ej.</th>
+                <th class="num">Ini.</th>
+                <th class="num">Ing.</th>
+                <th class="num">Gas.</th>
+                <th class="num">Fin.</th>
+                <th class="num">Neto</th>
               </tr>
             </thead>
             <tbody id="tbody-caja"></tbody>
@@ -94,12 +97,12 @@
           <table class="data-table small-table" id="table-partidas">
             <thead>
               <tr>
-                <th>Categoría de Gasto</th>
-                <th class="num">2021/22</th>
-                <th class="num">2022/23</th>
-                <th class="num">2023/24</th>
-                <th class="num">2024/25</th>
-                <th class="num">2025/26</th>
+                <th>Partida</th>
+                <th class="num">21/22</th>
+                <th class="num">22/23</th>
+                <th class="num">23/24</th>
+                <th class="num">24/25</th>
+                <th class="num">25/26</th>
               </tr>
             </thead>
             <tbody id="tbody-partidas"></tbody>
@@ -125,12 +128,13 @@
           <table class="data-table" id="table-ppto">
             <thead>
               <tr>
-                <th>Ejercicio</th>
-                <th class="num">Presupuestado</th>
-                <th class="num">Ejecutado</th>
-                <th class="num">Desviación €</th>
-                <th class="num">Desviación %</th>
-                <th class="num">Estado</th>
+                <th>Ej.</th>
+                <th class="num">Ppto.</th>
+                <th class="num">Real</th>
+                <th class="num">Desv. €</th>
+                <th class="num">Desv. %</th>
+                <th class="num">Subida</th>
+                <th class="num">Est.</th>
               </tr>
             </thead>
             <tbody id="tbody-ppto"></tbody>
@@ -159,10 +163,10 @@
           <table class="data-table" id="table-ajuste">
             <thead>
               <tr>
-                <th>Ejercicio</th>
-                <th class="num">Saldo Banco</th>
-                <th class="num green">+ Morosidad Activa</th>
-                <th class="num red">− Deuda Proveedores</th>
+                <th>Ej.</th>
+                <th class="num">Banco</th>
+                <th class="num green">Morosos</th>
+                <th class="num red">Deuda Prov.</th>
               </tr>
             </thead>
             <tbody id="tbody-ajuste"></tbody>
