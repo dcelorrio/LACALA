@@ -180,7 +180,7 @@ const shortEj = (ej) => ej.replace(/20(\d\d)\/(\d\d)/, '$1/$2');
 // THEME MANAGEMENT
 // ---------------------------------------------------------------
 
-let DARK = true;
+let DARK = false;
 let ALL_CHARTS = [];
 
 const chartTextColor = () => DARK ? '#94a3b8' : '#64748b';
@@ -701,7 +701,7 @@ document.addEventListener('DOMContentLoaded', () => {
   buildChartPpto();
 
   // Set initial icon
-  document.getElementById('btn-theme').textContent = '⛅';
+  document.getElementById('btn-theme').textContent = '🌙';
 });
 
 // ---------------------------------------------------------------
