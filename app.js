@@ -648,19 +648,6 @@ function buildTablePpto() {
   });
 }
 
-function buildTableAjuste() {
-  const tbody = document.getElementById('tbody-ajuste');
-  DATA_AJUSTE.forEach(d => {
-    tbody.insertAdjacentHTML('beforeend', `
-      <tr>
-        <td><strong>${shortEj(d.ejercicio)}</strong></td>
-        <td class="num">${fmt(d.saldo_banco)}</td>
-        <td class="num green">${d.morosidad > 0 ? '+ ' + fmt(d.morosidad) : '<span class="muted">—</span>'}</td>
-        <td class="num red">${d.deuda_prov > 0 ? '− ' + fmt(d.deuda_prov) : '<span class="muted">—</span>'}</td>
-      </tr>
-    `);
-  });
-}
 
 // ---------------------------------------------------------------
 // RESPONSIVE RESIZE
@@ -690,7 +677,6 @@ document.addEventListener('DOMContentLoaded', () => {
   buildTableCaja();
   buildTablePartidas();
   buildTablePpto();
-  buildTableAjuste();
 
   // Build charts
   buildChartCaja();
