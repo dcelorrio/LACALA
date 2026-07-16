@@ -519,10 +519,10 @@ body {
     scroll-snap-type: x mandatory;
     border-radius: 10px;
   }
-  .data-table          { font-size: 11.5px; min-width: 400px; }
-  .data-table th       { padding: 7px 8px;  font-size: 9px; letter-spacing: 0.05em; }
-  .data-table td       { padding: 7px 8px; }
-  .data-table tfoot td { padding: 7px 8px; font-size: 11px; }
+  .data-table          { font-size: 11.5px; min-width: 380px; }
+  .data-table th       { padding: 6px 4px;  font-size: 9px; letter-spacing: 0.05em; }
+  .data-table td       { padding: 6px 4px; }
+  .data-table tfoot td { padding: 6px 4px; font-size: 11px; }
 }
 
 /* --- 560px: Phone -------------------------------------------- */
@@ -566,10 +566,10 @@ body {
   .chart-card { padding: 14px 12px 10px; }
 
   /* Tables */
-  .data-table          { font-size: 11px; min-width: 360px; }
-  .data-table th       { padding: 6px 7px; }
-  .data-table td       { padding: 6px 7px; }
-  .data-table tfoot td { padding: 6px 7px; font-size: 10.5px; }
+  .data-table          { font-size: 10.5px; min-width: 320px; }
+  .data-table th       { padding: 5px 3px; }
+  .data-table td       { padding: 5px 3px; }
+  .data-table tfoot td { padding: 5px 3px; font-size: 10px; }
 
   /* Main */
   .main-content { padding: 16px 12px 32px; gap: 24px; }
@@ -594,9 +594,12 @@ body {
   .brand-text h1 { font-size: 13px; }
 
   /* Tables */
-  .data-table { font-size: 11px; }
+  .data-table          { font-size: 10px; min-width: 300px; }
+  .data-table th       { padding: 4px 2px; }
+  .data-table td       { padding: 4px 2px; }
+  .data-table tfoot td { padding: 4px 2px; }
 
-  .main-content { padding: 12px 10px 28px; }
+  .main-content { padding: 12px 8px 28px; }
 }
 
 /* ---------- BADGES ---------- */
