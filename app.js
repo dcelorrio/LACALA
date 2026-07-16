@@ -111,13 +111,13 @@ const DATA_PARTIDAS = [
   { cat: '10. Tasa de Vado Municipal',                  vals: [1150.00,  1150.00,  1190.00,  1190.00,  1210.00] },
   { cat: '11. Comisiones Bancarias',                    vals: [350.00,    410.00,   430.00,   490.00,   510.00] },
   // --- Desglose estimado partida 12 (suman exactamente los totales originales) ---
-  { cat: '12a. Honorarios Legales (Abogados/Procurador)', vals: [2100.00,  8700.00,  5700.00,  4700.00,  4200.00] },
-  { cat: '12c. Peritos y Técnicos (ITE/Informes)',        vals: [   0.00,  1800.00,   800.00,  2500.00,  1200.00] },
-  { cat: '12d. Costas y Tasas Judiciales',               vals: [   0.00,   800.00,   500.00,   400.00,   300.00] },
-  { cat: '12e. Notaría y Registro',                      vals: [ 350.00,   350.00,   250.00,   350.00,   350.00] },
-  { cat: '12f. Comunicaciones y Burofax',                vals: [ 450.00,   650.00,   453.97,   550.00,   500.00] },
-  { cat: '12g. Limpieza Extraordinaria',                 vals: [ 500.00,   800.00,   700.00,  1500.00,   800.00] },
-  { cat: '12h. Imprevistos y Gastos Menores',            vals: [1409.00,  1276.50,  1600.00,  3114.90,  2767.00] },
+  { cat: '12. Honorarios Legales (Abogados/Procurador)',  vals: [2100.00,  8700.00,  5700.00,  4700.00,  4200.00] },
+  { cat: '13. Peritos y Técnicos (ITE/Informes)',         vals: [   0.00,  1800.00,   800.00,  2500.00,  1200.00] },
+  { cat: '14. Costas y Tasas Judiciales',                vals: [   0.00,   800.00,   500.00,   400.00,   300.00] },
+  { cat: '15. Notaría y Registro',                       vals: [ 350.00,   350.00,   250.00,   350.00,   350.00] },
+  { cat: '16. Comunicaciones y Burofax',                 vals: [ 450.00,   650.00,   453.97,   550.00,   500.00] },
+  { cat: '17. Limpieza Extraordinaria',                  vals: [ 500.00,   800.00,   700.00,  1500.00,   800.00] },
+  { cat: '18. Imprevistos y Gastos Menores',             vals: [1409.00,  1276.50,  1600.00,  3114.90,  2767.00] },
 ];
 
 // ---------------------------------------------------------------
@@ -390,9 +390,9 @@ function buildChartPartidas() {
     '1. Obras', '2. Conserjería', '3. Jardín/Piscina', '4. Ascensores', '5. Agua',
     '6. Electricidad', '7. Reparaciones',
     '8. Administración', '9. Seguro', '10. Vado', '11. Bancarios',
-    '12a. Legales', '12c. Peritos',
-    '12d. Costas/Tasas', '12e. Notaría', '12f. Burofax',
-    '12g. Limpieza Ext.', '12h. Imprevistos',
+    '12. Legales', '13. Peritos',
+    '14. Costas/Tasas', '15. Notaría', '16. Burofax',
+    '17. Limpieza Ext.', '18. Imprevistos',
   ];
 
   const optFn = () => ({
@@ -592,10 +592,7 @@ function buildTablePartidas() {
 
     tbody.insertAdjacentHTML('beforeend', `
       <tr class="${groupClass}${groupPos}">
-        <td style="display:flex;align-items:center;gap:8px">
-          <span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:${PALETTE_12[rowIdx]};flex-shrink:0"></span>
-          ${p.cat}
-        </td>
+        <td>${p.cat}</td>
         ${cells}
       </tr>
     `);
