@@ -155,19 +155,25 @@ body {
   flex-shrink: 0;
 }
 
+.brand-text {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
 .brand-text h1 {
   font-size: 15px; font-weight: 800;
   color: var(--text-primary);
   letter-spacing: -0.02em;
-  line-height: 1.2;
+  line-height: 1;
 }
 
 .brand-text p {
-  font-size: 11px; font-weight: 600;
+  font-size: 10px; font-weight: 700;
   color: var(--text-secondary);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-top: 2px;
+  letter-spacing: 0.06em;
 }
 
 .header-actions { display: flex; align-items: center; gap: 10px; }
@@ -532,8 +538,6 @@ body {
   .header-inner { flex-wrap: wrap; gap: 8px; }
   .header-actions { gap: 8px; }
   .btn-primary { padding: 7px 12px; font-size: 11px; }
-  /* Keep print button visible but compact */
-  .btn-primary::before { content: '\1F4E5 '; }
 
   /* Section header stacks */
   .section-header {

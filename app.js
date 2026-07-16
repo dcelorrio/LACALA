@@ -192,7 +192,7 @@ const tooltipText    = () => DARK ? '#cbd5e1'  : '#1e3a8a';
 function applyTheme(dark) {
   DARK = dark;
   document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
-  document.getElementById('btn-theme').textContent = dark ? '☀️' : '🌙';
+  document.getElementById('btn-theme').textContent = dark ? '⛅' : '🌙';
   ALL_CHARTS.forEach(({ instance, optFn }) => {
     instance.setOption(optFn(), true);
   });
@@ -701,5 +701,5 @@ document.addEventListener('DOMContentLoaded', () => {
   buildChartPpto();
 
   // Set initial icon
-  document.getElementById('btn-theme').textContent = '☀️';
+  document.getElementById('btn-theme').textContent = '⛅';
 });
