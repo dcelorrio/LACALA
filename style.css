@@ -378,6 +378,13 @@ body {
   white-space: nowrap;
 }
 
+/* Permitir saltos de línea en nombres de partidas / texto de primera columna */
+.data-table th:first-child,
+.data-table td:first-child {
+  white-space: normal;
+  word-break: break-word;
+}
+
 .data-table tbody tr:nth-child(even) { background: var(--bg-table-alt); }
 .data-table tbody tr:hover { background: var(--bg-card-2); }
 .data-table tbody tr:last-child td { border-bottom: none; }
@@ -528,7 +535,7 @@ body {
     scroll-snap-type: x mandatory;
     border-radius: 10px;
   }
-  .data-table          { font-size: 11.5px; min-width: 380px; }
+  .data-table          { font-size: 11.5px; min-width: auto; }
   .data-table th       { padding: 6px 4px;  font-size: 9px; letter-spacing: 0.05em; }
   .data-table td       { padding: 6px 4px; }
   .data-table tfoot td { padding: 6px 4px; font-size: 11px; }
@@ -580,7 +587,7 @@ body {
   .chart-card { padding: 14px 12px 10px; }
 
   /* Tables */
-  .data-table          { font-size: 10.5px; min-width: 320px; }
+  .data-table          { font-size: 10.5px; min-width: auto; }
   .data-table th       { padding: 5px 3px; }
   .data-table td       { padding: 5px 3px; }
   .data-table tfoot td { padding: 5px 3px; font-size: 10px; }
@@ -618,7 +625,7 @@ body {
   .brand-text h1 { font-size: 13px; }
 
   /* Tables */
-  .data-table          { font-size: 10px; min-width: 300px; }
+  .data-table          { font-size: 10px; min-width: auto; }
   .data-table th       { padding: 4px 2px; }
   .data-table td       { padding: 4px 2px; }
   .data-table tfoot td { padding: 4px 2px; }
