@@ -7,10 +7,11 @@ FROM nginx:alpine
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy all app files into nginx public root
-COPY index.html  /usr/share/nginx/html/
-COPY app.js      /usr/share/nginx/html/
-COPY style.css   /usr/share/nginx/html/
-COPY docs/       /usr/share/nginx/html/docs/
+COPY index.html   /usr/share/nginx/html/
+COPY app.js       /usr/share/nginx/html/
+COPY style.css    /usr/share/nginx/html/
+COPY resumen.pdf  /usr/share/nginx/html/
+COPY docs/        /usr/share/nginx/html/docs/
 
 EXPOSE 80
 
