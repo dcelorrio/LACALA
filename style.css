@@ -321,7 +321,15 @@ body {
 
 /* Compact table variant for partidas breakdown */
 .small-table th,
-.small-table td { font-size: 11px; padding: 5px 6px; }
+.small-table td {
+  font-size: 13px; /* Igual al resto de tablas */
+  padding: 6px 8px;
+}
+.small-table th:not(:first-child),
+.small-table td:not(:first-child) {
+  width: 85px;
+  max-width: 85px;
+}
 
 /* Side-by-side charts at equal height */
 .charts-pair {
@@ -524,6 +532,13 @@ body {
   .data-table th       { padding: 6px 4px;  font-size: 9px; letter-spacing: 0.05em; }
   .data-table td       { padding: 6px 4px; }
   .data-table tfoot td { padding: 6px 4px; font-size: 11px; }
+
+  /* Reducir ancho de años en partidas para tableta */
+  .small-table th:not(:first-child),
+  .small-table td:not(:first-child) {
+    width: 65px;
+    max-width: 65px;
+  }
 }
 
 /* --- 560px: Phone -------------------------------------------- */
@@ -570,6 +585,13 @@ body {
   .data-table td       { padding: 5px 3px; }
   .data-table tfoot td { padding: 5px 3px; font-size: 10px; }
 
+  /* Reducir ancho de años en partidas para móvil */
+  .small-table th:not(:first-child),
+  .small-table td:not(:first-child) {
+    width: 55px;
+    max-width: 55px;
+  }
+
   /* Main */
   .main-content { padding: 16px 12px 32px; gap: 24px; }
 
@@ -600,6 +622,13 @@ body {
   .data-table th       { padding: 4px 2px; }
   .data-table td       { padding: 4px 2px; }
   .data-table tfoot td { padding: 4px 2px; }
+
+  /* Reducir ancho de años en partidas para móvil pequeño */
+  .small-table th:not(:first-child),
+  .small-table td:not(:first-child) {
+    width: 45px;
+    max-width: 45px;
+  }
 
   .main-content { padding: 12px 8px 28px; }
 
