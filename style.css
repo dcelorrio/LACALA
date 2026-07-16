@@ -533,7 +533,7 @@ body {
   .header-actions { gap: 8px; }
   .btn-primary { padding: 7px 12px; font-size: 11px; }
   /* Keep print button visible but compact */
-  .btn-primary::before { content: '\1F5A8\FE0F '; }
+  .btn-primary::before { content: '\1F4E5 '; }
 
   /* Section header stacks */
   .section-header {
