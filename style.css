@@ -102,7 +102,7 @@ body {
 
 /* Solo variant — no card wrapper, textarea IS the only border */
 .comment-area-solo {
-  min-height: 160px;
+  min-height: 280px;
   background: var(--bg-card);
   border-color: var(--border);
 }
@@ -573,6 +573,9 @@ body {
 
   /* Main */
   .main-content { padding: 16px 12px 32px; gap: 24px; }
+
+  /* Conclusions text height on narrow screen */
+  .comment-area-solo { min-height: 380px; }
 }
 
 /* --- 420px: Small phone -------------------------------------- */
@@ -600,6 +603,9 @@ body {
   .data-table tfoot td { padding: 4px 2px; }
 
   .main-content { padding: 12px 8px 28px; }
+
+  /* Conclusions text height on tiny screen */
+  .comment-area-solo { min-height: 480px; }
 }
 
 /* ---------- BADGES ---------- */
