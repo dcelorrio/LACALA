@@ -703,3 +703,42 @@ document.addEventListener('DOMContentLoaded', () => {
   // Set initial icon
   document.getElementById('btn-theme').textContent = '⛅';
 });
+
+// ---------------------------------------------------------------
+// EXPORT TO PDF VIA CLIENT-SIDE LIBRARIES
+// ---------------------------------------------------------------
+function downloadReportPDF() {
+  const btn = document.getElementById('btn-print');
+  const originalHTML = btn.innerHTML;
+  btn.innerHTML = '⌛';
+  btn.disabled = true;
+
+  // Seleccionamos el cuerpo de contenido del reporte
+  const element = document.querySelector('.main-content');
+
+  const opt = {
+    margin:       [8, 8, 8, 8],
+    filename:     'C.P. Residencial La Cala - Resumen Economico 2021-2027.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { 
+      scale: 2, 
+      useCORS: true, 
+      logging: false,
+      backgroundColor: DARK ? '#020617' : '#f8fafc'
+    },
+    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+    pagebreak:    { mode: ['avoid-all', 'css'] }
+  };
+
+  html2pdf().set(opt).from(element).save().then(() => {
+    btn.innerHTML = originalHTML;
+    btn.disabled = false;
+  }).catch(err => {
+    console.error('Error generando PDF:', err);
+    btn.innerHTML = originalHTML;
+    btn.disabled = false;
+    // Fallback nativo
+    window.print();
+  });
+}
+
