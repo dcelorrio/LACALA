@@ -469,7 +469,7 @@ body {
     break-inside: avoid;
   }
 
-  .dashboard-section { break-inside: avoid; }
+  .dashboard-section { break-inside: auto; }
   .dashboard-section + .dashboard-section { break-before: page; }
 
   .chart-container { height: 260px !important; }
