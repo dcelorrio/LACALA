@@ -699,6 +699,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Set initial icon
   document.getElementById('btn-theme').textContent = '🌙';
+
+  // Control de cookie para modal de bienvenida
+  const checkWelcomeCookie = () => {
+    const nameEQ = "lacala_welcome_seen=";
+    const ca = document.cookie.split(';');
+    for(let i=0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0)==' ') c = c.substring(1,c.length);
+      if (c.indexOf(nameEQ) == 0) return true;
+    }
+    return false;
+  };
+
+  const setWelcomeCookie = () => {
+    const date = new Date();
+    date.setTime(date.getTime() + (30*24*60*60*1000)); // Expiración a 30 días
+    const expires = "; expires=" + date.toUTCString();
+    document.cookie = "lacala_welcome_seen=true" + expires + "; path=/; SameSite=Lax";
+  };
+
+  const modal = document.getElementById('welcome-modal');
+  const btnClose = document.getElementById('btn-welcome-close');
+
+  if (modal && btnClose) {
+    if (!checkWelcomeCookie()) {
+      setTimeout(() => {
+        modal.classList.add('show');
+      }, 600); // Suave retraso de entrada
+    }
+
+    btnClose.addEventListener('click', () => {
+      modal.classList.remove('show');
+      setWelcomeCookie();
+    });
+  }
 });
 
 // ---------------------------------------------------------------
