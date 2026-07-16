@@ -636,7 +636,7 @@ function buildTablePpto() {
 
     tbody.insertAdjacentHTML('beforeend', `
       <tr${isFuture ? ' style="opacity:0.85;font-style:italic"' : ''}>
-        <td><strong>${shortEj(d.ejercicio)}</strong>${isFuture ? ' <span class="badge badge-yellow" style="font-size:10px">Aprobado</span>' : ''}</td>
+        <td><strong>${shortEj(d.ejercicio)}</strong></td>
         <td class="num">${fmt(d.presupuestado)}</td>
         <td class="num">${isFuture ? '<span class="muted">— pendiente</span>' : fmt(d.ejecutado)}</td>
         <td class="num ${cls}">${isFuture ? '<span class="muted">—</span>' : `<strong>${fmtSign(dev)}</strong>`}</td>
