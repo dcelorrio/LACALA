@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>C.P. Residencial La Cala · Informe Económico 2021–2026</title>
+  <meta name="description" content="Cuadro de mando financiero de la Comunidad de Propietarios Residencial La Cala (Miami Platja). Evolución de saldos, ingresos, gastos y presupuestos de los últimos 5 ejercicios." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="app-header no-print">
+    <div class="header-inner">
+      <div class="header-brand">
+        <div class="brand-icon">LC</div>
+        <div class="brand-text">
+          <h1>C.P. Residencial La Cala</h1>
+          <p>Informe Económico · Ejercicios 2021/2022 – 2025/2026</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="btn-theme" class="btn-icon" title="Cambiar tema">☀️</button>
+        <button id="btn-print" class="btn-primary" onclick="window.print()">
+          🖨️ &nbsp;Imprimir / PDF
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PRINT HEADER (only visible when printing) -->
+  <div class="print-header print-only">
+    <div class="print-header-content">
+      <div>
+        <h1>C.P. Residencial La Cala</h1>
+        <p>Miami Platja, Tarragona &nbsp;·&nbsp; Informe Económico 2021/2022 – 2025/2026</p>
+      </div>
+      <div class="print-date" id="print-date"></div>
+    </div>
+    <hr class="print-divider" />
+  </div>
+
+  <main class="main-content">
+
+
+    <!-- SECTION 1: EVOLUCIÓN DE CAJA Y RESULTADOS -->
+    <section class="dashboard-section">
+      <div class="section-header">
+        <div class="section-number">01</div>
+        <div>
+          <h2 class="section-title">Evolución de Caja y Resultados Anuales</h2>
+          <p class="section-desc">Saldo inicial, ingresos totales, gastos totales y resultado neto por ejercicio</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="table-wrapper">
+          <table class="data-table" id="table-caja">
+            <thead>
+              <tr>
+                <th>Ejercicio</th>
+                <th class="num">Saldo Inicial</th>
+                <th class="num">Ingresos</th>
+                <th class="num">Gastos</th>
+                <th class="num">Saldo Final</th>
+                <th class="num">Resultado</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-caja"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="charts-pair">
+        <div class="card chart-card">
+          <div class="chart-title">Ingresos vs Gastos por Ejercicio</div>
+          <div id="chart-caja" class="chart-container"></div>
+        </div>
+
+        <div class="card chart-card">
+          <div class="chart-title">Saldo Bancario — Curva de Evolución</div>
+          <div id="chart-saldo-line" class="chart-container"></div>
+        </div>
+      </div>
+
+      <!-- Desglose por partidas -->
+      <div class="card">
+        <div class="chart-title" style="margin-bottom:12px">Desglose de Gastos por Partida</div>
+        <div class="table-wrapper">
+          <table class="data-table small-table" id="table-partidas">
+            <thead>
+              <tr>
+                <th>Categoría de Gasto</th>
+                <th class="num">2021/22</th>
+                <th class="num">2022/23</th>
+                <th class="num">2023/24</th>
+                <th class="num">2024/25</th>
+                <th class="num">2025/26</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-partidas"></tbody>
+            <tfoot id="tfoot-partidas"></tfoot>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- SECTION 2: PRESUPUESTADO VS EJECUTADO -->
+    <section class="dashboard-section">
+      <div class="section-header">
+        <div class="section-number">02</div>
+        <div>
+          <h2 class="section-title">Presupuestado vs. Ejecutado (Gastos)</h2>
+          <p class="section-desc">Comparativa entre el gasto aprobado en junta y el gasto real del ejercicio</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="table-wrapper">
+          <table class="data-table" id="table-ppto">
+            <thead>
+              <tr>
+                <th>Ejercicio</th>
+                <th class="num">Presupuestado</th>
+                <th class="num">Ejecutado</th>
+                <th class="num">Desviación €</th>
+                <th class="num">Desviación %</th>
+                <th class="num">Estado</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-ppto"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card chart-card">
+        <div class="chart-title">Presupuestado vs. Ejecutado por Ejercicio</div>
+        <div id="chart-ppto" class="chart-container"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: SALDO AJUSTADO -->
+    <section class="dashboard-section">
+      <div class="section-header">
+        <div class="section-number">03</div>
+        <div>
+          <h2 class="section-title">Saldo Bancario con Ajuste de Partidas Pendientes</h2>
+          <p class="section-desc">Saldo banco + morosidad activa recobrable − deudas pendientes a proveedores = posición económica real</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="table-wrapper">
+          <table class="data-table" id="table-ajuste">
+            <thead>
+              <tr>
+                <th>Ejercicio</th>
+                <th class="num">Saldo Banco</th>
+                <th class="num green">+ Morosidad Activa</th>
+                <th class="num red">− Deuda Proveedores</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-ajuste"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- SECTION 4: CONCLUSIONES -->
+    <section class="dashboard-section">
+      <div class="section-header">
+        <div class="section-number">04</div>
+        <div>
+          <h2 class="section-title">Conclusiones</h2>
+          <p class="section-desc">Valoración global de la evolución económica y del incremento de cuotas propuesto</p>
+        </div>
+      </div>
+
+      <textarea class="comment-area comment-area-solo" id="comment-conclusiones">El análisis de los últimos cinco ejercicios (2021/2022 a 2025/2026) revela una aceleración del gasto sin precedentes en la historia reciente de la comunidad. Durante los tres primeros ejercicios, el gasto total se mantuvo en el entorno de los 80.000–92.000 € anuales, muy por debajo del presupuesto ordinario de 104.500 €, lo que permitió acumular un fondo de reserva superior a 168.000 €. En los últimos dos ejercicios (2024/25 y 2025/26), el gasto se ha disparado hasta los 176.000–179.000 € anuales, duplicando la media histórica y consumiendo prácticamente la totalidad de las reservas acumuladas.
+
+El presupuesto propuesto para el ejercicio 2026/2027 asciende a 145.000 €, lo que representa un incremento del 38,7% sobre el presupuesto ordinario vigente de 104.500 €. Este aumento se traslada íntegramente a las cuotas de comunidad de todos los propietarios, con un encarecimiento mensual que varía según el coeficiente de participación de cada finca. La magnitud del incremento exige un análisis riguroso de cada partida de gasto y una justificación detallada de las obras e inversiones extraordinarias ejecutadas, que en los dos últimos ejercicios han ascendido a más de 117.000 € acumulados, sin que conste un plan plurianual de inversiones aprobado en junta que respaldase dicho desembolso.</textarea>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="app-footer">
+      <p>C.P. Residencial La Cala · Miami Platja, Tarragona · Datos extraídos de las Convocatorias y Actas Oficiales de los ejercicios 2021/2022 a 2025/2026</p>
+      <p class="no-print">Generado por Antigravity Dashboard · <span id="gen-date"></span></p>
+    </footer>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

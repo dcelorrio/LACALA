@@ -1,0 +1,16 @@
+# Git — no incluir ficheros de trabajo locales
+.git/
+*.local
+
+# Análisis internos (no son parte del dashboard publicado)
+analisis_financiero.md
+
+# Windows
+Thumbs.db
+desktop.ini
+*.lnk
+
+# Editores
+.vscode/
+*.swp
+*~

@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  lacala:
+    image: ghcr.io/dcelorrio/lacala:latest   # O usa build: . para construir local
+    build: .
+    container_name: lacala
+    restart: unless-stopped
+    ports:
+      - "8085:80"      # Cambia 8085 al puerto libre que prefieras en tu host
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"   # Opcional: auto-update
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+# ── NOTAS PARA PORTAINER ──────────────────────────────────────────
+# 1. En Portainer → Stacks → Add Stack → Repository
+# 2. Repository URL: https://github.com/dcelorrio/LACALA
+# 3. Compose path: docker-compose.yml
+# 4. Si el repo es privado, añade un GitHub PAT en "Authentication"
+# 5. Pulsa "Deploy the stack"
+# ─────────────────────────────────────────────────────────────────

@@ -1,0 +1,9 @@
+# Docker — no copiar al contenedor lo que no es necesario
+.git/
+.gitignore
+analisis_financiero.md
+*.md
+README.md
+*.log
+.vscode/
+Thumbs.db
