@@ -540,17 +540,19 @@ body {
     scroll-snap-type: x mandatory;
     border-radius: 10px;
   }
-  .data-table          { font-size: 11.5px; min-width: auto; }
-  .data-table th       { padding: 6px 4px;  font-size: 9px; letter-spacing: 0.05em; }
-  .data-table td       { padding: 6px 4px; }
-  .data-table tfoot td { padding: 6px 4px; font-size: inherit; }
-
-  /* Reducir ancho de años en partidas para tableta */
-  .small-table th:not(:first-child),
-  .small-table td:not(:first-child) {
-    width: 60px;
-    max-width: 60px;
+  .data-table          { font-size: 11.5px; min-width: 620px; }
+  #table-partidas      { min-width: 480px; }
+  .data-table th       { padding: 6px 6px;  font-size: 9px; letter-spacing: 0.05em; white-space: nowrap; }
+  .data-table td       { padding: 6px 6px; white-space: nowrap; }
+  .data-table th:first-child,
+  .data-table td:first-child {
+    white-space: nowrap; /* Años o partidas */
   }
+  #table-partidas th:first-child,
+  #table-partidas td:first-child {
+    white-space: normal; /* Permitir wrap solo en nombres de partidas */
+  }
+  .data-table tfoot td { padding: 6px 6px; font-size: inherit; }
 }
 
 /* --- 560px: Phone -------------------------------------------- */
@@ -592,17 +594,11 @@ body {
   .chart-card { padding: 10px 8px; }
 
   /* Tables */
-  .data-table          { font-size: 10.5px; min-width: auto; }
-  .data-table th       { padding: 5px 2px; }
-  .data-table td       { padding: 5px 2px; }
-  .data-table tfoot td { padding: 5px 2px; font-size: inherit; }
-
-  /* Reducir ancho de años en partidas para móvil */
-  .small-table th:not(:first-child),
-  .small-table td:not(:first-child) {
-    width: 50px;
-    max-width: 50px;
-  }
+  .data-table          { font-size: 10.5px; min-width: 580px; }
+  #table-partidas      { min-width: 440px; }
+  .data-table th       { padding: 5px 4px; white-space: nowrap; }
+  .data-table td       { padding: 5px 4px; white-space: nowrap; }
+  .data-table tfoot td { padding: 5px 4px; font-size: inherit; }
 
   /* Main */
   .main-content { padding: 12px 6px 24px; gap: 20px; }
@@ -630,17 +626,11 @@ body {
   .brand-text h1 { font-size: 13px; }
 
   /* Tables */
-  .data-table          { font-size: 10px; min-width: auto; }
-  .data-table th       { padding: 4px 1px; }
-  .data-table td       { padding: 4px 1px; }
-  .data-table tfoot td { padding: 4px 1px; }
-
-  /* Reducir ancho de años en partidas para móvil pequeño */
-  .small-table th:not(:first-child),
-  .small-table td:not(:first-child) {
-    width: 40px;
-    max-width: 40px;
-  }
+  .data-table          { font-size: 10px; min-width: 520px; }
+  #table-partidas      { min-width: 420px; }
+  .data-table th       { padding: 4px 3px; white-space: nowrap; }
+  .data-table td       { padding: 4px 3px; white-space: nowrap; }
+  .data-table tfoot td { padding: 4px 3px; }
 
   .main-content { padding: 8px 4px 20px; }
 
