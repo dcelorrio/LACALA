@@ -531,7 +531,7 @@ body {
   .chart-tall      { height: 360px; }
 
   /* Cards */
-  .card { padding: 18px; }
+  .card { padding: 12px; }
 
   /* Tables: touch-friendly horizontal scroll */
   .table-wrapper {
@@ -548,8 +548,8 @@ body {
   /* Reducir ancho de años en partidas para tableta */
   .small-table th:not(:first-child),
   .small-table td:not(:first-child) {
-    width: 65px;
-    max-width: 65px;
+    width: 60px;
+    max-width: 60px;
   }
 }
 
@@ -588,24 +588,24 @@ body {
   .charts-pair .chart-container { height: 230px; }
 
   /* Cards */
-  .card  { padding: 14px 14px; border-radius: 10px; }
-  .chart-card { padding: 14px 12px 10px; }
+  .card  { padding: 10px; border-radius: 10px; }
+  .chart-card { padding: 10px 8px; }
 
   /* Tables */
   .data-table          { font-size: 10.5px; min-width: auto; }
-  .data-table th       { padding: 5px 3px; }
-  .data-table td       { padding: 5px 3px; }
-  .data-table tfoot td { padding: 5px 3px; font-size: inherit; }
+  .data-table th       { padding: 5px 2px; }
+  .data-table td       { padding: 5px 2px; }
+  .data-table tfoot td { padding: 5px 2px; font-size: inherit; }
 
   /* Reducir ancho de años en partidas para móvil */
   .small-table th:not(:first-child),
   .small-table td:not(:first-child) {
-    width: 55px;
-    max-width: 55px;
+    width: 50px;
+    max-width: 50px;
   }
 
   /* Main */
-  .main-content { padding: 16px 12px 32px; gap: 24px; }
+  .main-content { padding: 12px 6px 24px; gap: 20px; }
 
   /* Conclusions text height on narrow screen */
   .comment-area-solo { min-height: 380px; }
@@ -631,18 +631,18 @@ body {
 
   /* Tables */
   .data-table          { font-size: 10px; min-width: auto; }
-  .data-table th       { padding: 4px 2px; }
-  .data-table td       { padding: 4px 2px; }
-  .data-table tfoot td { padding: 4px 2px; }
+  .data-table th       { padding: 4px 1px; }
+  .data-table td       { padding: 4px 1px; }
+  .data-table tfoot td { padding: 4px 1px; }
 
   /* Reducir ancho de años en partidas para móvil pequeño */
   .small-table th:not(:first-child),
   .small-table td:not(:first-child) {
-    width: 45px;
-    max-width: 45px;
+    width: 40px;
+    max-width: 40px;
   }
 
-  .main-content { padding: 12px 8px 28px; }
+  .main-content { padding: 8px 4px 20px; }
 
   /* Conclusions text height on tiny screen */
   .comment-area-solo { min-height: 480px; }
