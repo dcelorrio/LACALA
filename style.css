@@ -471,7 +471,11 @@ body {
 
   .dashboard-section { break-inside: auto; }
   .dashboard-section + .dashboard-section { break-before: page; }
-  .print-keep-together { break-inside: avoid; }
+  .print-keep-together {
+    display: block !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
 
   .chart-container { height: 260px !important; }
 
