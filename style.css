@@ -690,7 +690,7 @@ tr.row-group-bottom { border-bottom: 1px solid transparent; }
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 16px;
-  max-width: 460px;
+  max-width: 500px;
   width: 100%;
   padding: 24px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.4);
@@ -710,7 +710,7 @@ tr.row-group-bottom { border-bottom: 1px solid transparent; }
   font-size: 24px;
 }
 .modal-title {
-  font-size: 16px;
+  font-size: 19px;
   font-weight: 800;
   color: var(--text-primary);
   letter-spacing: -0.01em;
@@ -722,9 +722,9 @@ tr.row-group-bottom { border-bottom: 1px solid transparent; }
   margin-bottom: 24px;
 }
 .modal-body p {
-  font-size: 12.5px;
+  font-size: 14.5px;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.65;
   white-space: normal;
 }
 .modal-body strong {
