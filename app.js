@@ -72,8 +72,8 @@ const DATA_PPTO = [
   { ejercicio: '2024/25', presupuestado: 104500.00, ejecutado: 176405.71, subida_cuota:  0 },
   { ejercicio: '2025/26', presupuestado: 104500.00, ejecutado: 179066.31, subida_cuota:  0 },
   // 2026/27: presupuesto aprobado en Convocatoria 2025/26 (pág. 1)
-  // Subida: (145.000 - 104.500) / 104.500 × 100 = +38,76 %
-  { ejercicio: '2026/27', presupuestado: 145000.00, ejecutado:       null, subida_cuota: 38.76 },
+  // Subida: (154.425 - 104.500) / 104.500 × 100 = +47,78 %
+  { ejercicio: '2026/27', presupuestado: 154425.00, ejecutado:       null, subida_cuota: 47.78 },
 ];
 
 /** Section 3 — Saldo ajustado con morosidad y proveedores */
@@ -104,20 +104,20 @@ const DATA_PARTIDAS = [
   { cat: '3. Jardinería y Piscina',                     vals: [3609.06,  4939.73,  5676.09,  7021.95, 17917.54] },
   { cat: '4. Mantenimiento Ascensores',                 vals: [5760.51,  7034.93,  6928.42, 12833.34, 16276.09] },
   { cat: '5. Suministro de Agua',                       vals: [10995.34, 12241.35, 12198.35, 11658.91, 13261.48] },
+  { cat: '7. Reparaciones Ordinarias',                  vals: [4155.18,  3273.24,  5499.00,  8584.93,  8653.19] },
   { cat: '6. Electricidad',                             vals: [4120.50,  4350.00,  4410.20,  5620.40,  5980.50] },
-  { cat: '7. Reparaciones Ordinarias',                  vals: [6840.20,  7150.60,  8969.12, 11230.50, 12450.19] },
   { cat: '8. Honorarios Administración',                vals: [5400.00,  5400.00,  5510.00,  5510.00,  5620.00] },
-  { cat: '9. Seguro Multirriesgo',                      vals: [3150.00,  3280.00,  3390.00,  3510.00,  3650.00] },
-  { cat: '10. Tasa de Vado Municipal',                  vals: [1150.00,  1150.00,  1190.00,  1190.00,  1210.00] },
-  { cat: '11. Comisiones Bancarias',                    vals: [350.00,    410.00,   430.00,   490.00,   510.00] },
-  // --- Desglose estimado partida 12 (suman exactamente los totales originales) ---
   { cat: '12. Honorarios Legales (Abogados/Procurador)',  vals: [2100.00,  8700.00,  5700.00,  4700.00,  4200.00] },
+  { cat: '18. Materiales de Ferretería',                  vals: [2685.02,  3877.36,  3470.12,  2645.57,  3797.00] },
+  { cat: '9. Seguro Multirriesgo',                      vals: [3150.00,  3280.00,  3390.00,  3510.00,  3650.00] },
+  { cat: '19. Otros e Imprevistos',                       vals: [1409.00,  1276.50,  1600.00,  3114.90,  2767.00] },
+  { cat: '10. Tasas y Tributos Municipales (Vado/Basura)', vals: [1150.00,  1150.00,  1190.00,  1190.00,  1210.00] },
   { cat: '13. Peritos y Técnicos (ITE/Informes)',         vals: [   0.00,  1800.00,   800.00,  2500.00,  1200.00] },
-  { cat: '14. Costas y Tasas Judiciales',                vals: [   0.00,   800.00,   500.00,   400.00,   300.00] },
-  { cat: '15. Notaría y Registro',                       vals: [ 350.00,   350.00,   250.00,   350.00,   350.00] },
-  { cat: '16. Comunicaciones y Burofax',                 vals: [ 450.00,   650.00,   453.97,   550.00,   500.00] },
   { cat: '17. Limpieza Extraordinaria',                  vals: [ 500.00,   800.00,   700.00,  1500.00,   800.00] },
-  { cat: '18. Imprevistos y Gastos Menores',             vals: [1409.00,  1276.50,  1600.00,  3114.90,  2767.00] },
+  { cat: '11. Comisiones Bancarias',                    vals: [350.00,    410.00,   430.00,   490.00,   510.00] },
+  { cat: '16. Comunicaciones y Burofax',                 vals: [ 450.00,   650.00,   453.97,   550.00,   500.00] },
+  { cat: '15. Notaría y Registro',                       vals: [ 350.00,   350.00,   250.00,   350.00,   350.00] },
+  { cat: '14. Costas y Tasas Judiciales',                vals: [   0.00,   800.00,   500.00,   400.00,   300.00] },
 ];
 
 // ---------------------------------------------------------------
@@ -136,7 +136,7 @@ const C_SLATE  = '#94a3b8';
 const PALETTE_19 = [
   '#ef4444', // 1. Obras
   '#3b82f6', // 2. Conserjería
-  '#10b981', // 3. Jardinería  ← movida al lado de Conserjería
+  '#10b981', // 3. Jardinería
   '#8b5cf6', // 4. Ascensores
   '#06b6d4', // 5. Agua
   '#facc15', // 6. Electricidad
@@ -151,7 +151,8 @@ const PALETTE_19 = [
   '#c4b5fd', // 12e. Notaría
   '#7dd3fc', // 12f. Comunicaciones
   '#86efac', // 12g. Limpieza Ext.
-  '#fed7aa', // 12h. Imprevistos
+  '#fed7aa', // 18. Materiales de Ferretería
+  '#cbd5e1', // 19. Otros e Imprevistos (Gris/Slate claro)
 ];
 const PALETTE_12 = PALETTE_19; // alias for backward compat
 
